@@ -2,12 +2,12 @@
 <package >
   <metadata>
     <id>EsriNea.MvvmToolKit</id>
-    <version>1.1.5</version>
+    <version>1.1.6</version>
     <title>EsriNeaMvvm</title>
     <authors>OsamaElhussiny</authors>
     <owners>esriNortheastAfrica</owners>
     <license type="expression">Apache-2.0</license>
-    <projectUrl>http://LICENSE_URL_WILL_UPLOAD</projectUrl>
+    <projectUrl>https://github.com/osamaelhosany/FreshMvvmPattern/tree/master/FreshMvvm</projectUrl>
     <iconUrl>http://LICENSE_URL_WILL_UPLOAD</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This is a tool kit to handle Navigation and regestier all services</description>
