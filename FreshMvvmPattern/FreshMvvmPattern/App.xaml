@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="FreshMvvmPattern.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!--  Colors  -->
+            <Color x:Key="ElePhantColor" x:FactoryMethod="FromHex">
+                <x:Arguments>
+                    <x:String>#133948</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:Key="FireflyColor" x:FactoryMethod="FromHex">
+                <x:Arguments>
+                    <x:String>#0F2C38</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:Key="WhiteColor" x:FactoryMethod="FromHex">
+                <x:Arguments>
+                    <x:String>#FFFFFF</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:Key="GrayColor" x:FactoryMethod="FromHex">
+                <x:Arguments>
+                    <x:String>#A1A19B</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:Key="TrinidadColor" x:FactoryMethod="FromHex">
+                <x:Arguments>
+                    <x:String>#E45B00</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:Key="MischkaColor" x:FactoryMethod="FromHex">
+                <x:Arguments>
+                    <x:String>#D7D7DD</x:String>
+                </x:Arguments>
+            </Color>
+
+            <!--  Fonts  -->
+            <OnPlatform x:Key="AvenirFont" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Avenir-Roman.ttf#Roman" />
+                <On Platform="iOS" Value="Avenir-LT-Std-55-Roman_5173.ttf" />
+            </OnPlatform>
+            <OnPlatform x:Key="DancingScript" x:TypeArguments="x:String">
+                <On Platform="Android" Value="DancingScript-Regular.ttf#Regular" />
+                <On Platform="iOS" Value="DancingScript-Regular.ttf" />
+            </OnPlatform>
+
+            <!--  Style  -->
+            <Style x:Key="DefaultEntryStyle" TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="{StaticResource GrayColor}" />
+                <Setter Property="FontFamily" Value="{StaticResource AvenirFont}" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

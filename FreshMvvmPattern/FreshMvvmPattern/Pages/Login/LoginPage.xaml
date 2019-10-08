@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:base="clr-namespace:EsriNeaMvvm;assembly=EsriNeaMvvm"
+             x:Class="FreshMvvmPattern.Pages.Login.LoginPage">
+    <base:BaseContentPage.Content>
+        <Grid BackgroundColor="{StaticResource ElePhantColor}">
+            <Frame
+                Margin="0"
+                Padding="25"
+                BackgroundColor="{StaticResource WhiteColor}"
+                CornerRadius="4"
+                HeightRequest="320"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="450">
+                <StackLayout
+                    HorizontalOptions="Center"
+                    Orientation="Vertical"
+                    VerticalOptions="Center">
+                    <Image
+                        Margin="0,0,0,20"
+                        HeightRequest="50"
+                        HorizontalOptions="Center"
+                        Source="Esrilogoblack"
+                        VerticalOptions="Start"
+                        WidthRequest="400" />
+                    <Entry
+                        Placeholder="Username:"
+                        ReturnType="Next"
+                        Text="{Binding UserName}"
+                        Style="{StaticResource DefaultEntryStyle}" />
+                    <Entry
+                        Margin="0,10,0,0"
+                        IsPassword="True"
+                        Placeholder="Password:"
+                        ReturnType="Go"
+                        Style="{StaticResource DefaultEntryStyle}" />
+                    <Button
+                        Margin="0,30,0,0"
+                        BackgroundColor="{StaticResource TrinidadColor}"
+                        Command="{Binding LoginCommand}"
+                        CornerRadius="4"
+                        FontAttributes="Bold"
+                        FontFamily="{StaticResource AvenirFont}"
+                        FontSize="16"
+                        Text="Log in"
+                        TextColor="{StaticResource WhiteColor}"
+                        Visual="Default" />
+                    <StackLayout
+                        Margin="-5,0,0,0"
+                        Orientation="Horizontal"
+                        Spacing="5">
+                        <CheckBox Color="{StaticResource GrayColor}" />
+                        <Label
+                            FontSize="Small"
+                            Text="Remember Me"
+                            TextColor="{StaticResource GrayColor}"
+                            VerticalTextAlignment="Center" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </base:BaseContentPage.Content>
+</base:BaseContentPage>
