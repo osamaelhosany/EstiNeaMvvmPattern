@@ -5,6 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dropemnu="clr-namespace:DropdownMenu.UserControls;assembly=DropdownMenu"
+xmlns:drop="clr-namespace:DropdownMenu.UserControls;assembly=DropdownMenu"
     mc:Ignorable="d">
 
     <StackLayout>
@@ -14,6 +16,13 @@
             Text="Welcome to Xamarin.Forms!"
             VerticalOptions="CenterAndExpand" />
         <Button Command="{Binding GoBackCommand}" Text="Go Back" />
+        <dropemnu:DropMenu  ColorBackground="LightGray"
+                    HeaderText="{Binding GenderList.HeaderName}"
+                    HeaderTextColor="DarkBlue"
+                    HorizontalOptions="Center"
+                    ItemCheckedCommand="{Binding GenderSelectedCommand}"
+                    ListSource="{Binding GenderList.DropMenuList}"
+                    VerticalOptions="Start" />
     </StackLayout>
 
 </ContentPage>
