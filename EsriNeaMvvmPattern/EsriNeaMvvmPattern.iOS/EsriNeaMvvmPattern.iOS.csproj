@@ -125,9 +125,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\FreshMvvmPattern\FreshMvvmPattern.csproj">
-      <Project>{7D800A81-4F95-4F07-9905-006F0578826A}</Project>
-      <Name>FreshMvvmPattern</Name>
+    <ProjectReference Include="..\EsriNeaMvvmPattern\EsriNeaMvvmPattern.csproj">
+      <Project>{0F46375F-27D7-4E57-A919-245316E3839F}</Project>
+      <Name>EsriNeaMvvmPattern</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

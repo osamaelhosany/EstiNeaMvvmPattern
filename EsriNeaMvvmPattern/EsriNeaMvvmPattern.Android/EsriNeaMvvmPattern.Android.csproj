@@ -113,9 +113,9 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FreshMvvmPattern\FreshMvvmPattern.csproj">
+    <ProjectReference Include="..\EsriNeaMvvmPattern\EsriNeaMvvmPattern.csproj">
       <Project>{0f46375f-27d7-4e57-a919-245316e3839f}</Project>
-      <Name>FreshMvvmPattern</Name>
+      <Name>EsriNeaMvvmPattern</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

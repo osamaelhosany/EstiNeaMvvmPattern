@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29230.61
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreshMvvmPattern.Android", "FreshMvvmPattern\FreshMvvmPattern.Android\FreshMvvmPattern.Android.csproj", "{72B721FF-0570-4E77-A397-EDA526F665DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsriNeaMvvmPattern.Android", "EsriNeaMvvmPattern\EsriNeaMvvmPattern.Android\EsriNeaMvvmPattern.Android.csproj", "{72B721FF-0570-4E77-A397-EDA526F665DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreshMvvmPattern.iOS", "FreshMvvmPattern\FreshMvvmPattern.iOS\FreshMvvmPattern.iOS.csproj", "{DBA5E2EC-FFAF-4FAF-9D30-0C9625E6FF68}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EsriNeaMvvmPattern.iOS", "EsriNeaMvvmPattern\EsriNeaMvvmPattern.iOS\EsriNeaMvvmPattern.iOS.csproj", "{DBA5E2EC-FFAF-4FAF-9D30-0C9625E6FF68}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreshMvvmPattern", "FreshMvvmPattern\FreshMvvmPattern\FreshMvvmPattern.csproj", "{0F46375F-27D7-4E57-A919-245316E3839F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EsriNeaMvvmPattern", "EsriNeaMvvmPattern\EsriNeaMvvmPattern\EsriNeaMvvmPattern.csproj", "{0F46375F-27D7-4E57-A919-245316E3839F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EsriNeaMvvm", "FreshMvvm\EsriNeaMvvm.csproj", "{37DAE7B7-E955-4E0C-81F8-D4110E522CCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EsriNeaMvvm", "EsriNeaMvvm\EsriNeaMvvm.csproj", "{37DAE7B7-E955-4E0C-81F8-D4110E522CCF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IOC", "FreshIOC\IOC.csproj", "{C6F4AD38-BBF3-4B43-9D11-36CE4F0F4FBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IOC", "TinyIOC\IOC.csproj", "{C6F4AD38-BBF3-4B43-9D11-36CE4F0F4FBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
