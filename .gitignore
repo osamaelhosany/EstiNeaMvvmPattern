@@ -12,3 +12,4 @@ obj/
 
 *.nuspec
 *.nupkg
+*.exe
