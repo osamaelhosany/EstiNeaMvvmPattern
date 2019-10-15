@@ -17,9 +17,9 @@ namespace FreshMvvmPattern
 
             SetupDependencyInjection();
 
-            SetStartPage();
+          //  SetStartPage();
 
-          //  SetupMasterDetail();
+            SetupMasterDetail();
         }
 
         private void SetupDependencyInjection()

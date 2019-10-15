@@ -12,7 +12,8 @@ namespace EsriNeaMvvm
         Dictionary<string, Page> _pages = new Dictionary<string, Page>();
         ContentPage _menuPage;
         ObservableCollection<string> _pageNames = new ObservableCollection<string>();
-        ListView _listView = new ListView();
+        ListView _listView = new ListView() { 
+            SeparatorVisibility =SeparatorVisibility.None };
 
         public Dictionary<string, Page> Pages { get { return _pages; } }
         protected ObservableCollection<string> PageNames { get { return _pageNames; } }
@@ -81,7 +82,7 @@ namespace EsriNeaMvvm
             _menuPage.Title = menuPageTitle;
 
             _listView.ItemsSource = _pageNames;
-
+            
             _listView.ItemSelected += (sender, args) =>
             {
                 if (_pages.ContainsKey((string)args.SelectedItem))
