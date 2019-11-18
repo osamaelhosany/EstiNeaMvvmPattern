@@ -1,6 +1,6 @@
 ﻿using DropdownMenu.Models.DropdownModel;
 using EsriNeaMvvm;
-using FreshMvvmPattern.ViewModels.Login;
+using EsriNeaMvvmPattern.ViewModels.Login;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace FreshMvvmPattern.ViewModels.Home
+namespace EsriNeaMvvmPattern.ViewModels.Home
 {
     public class MainViewModel : BaseViewModel
     {
@@ -20,6 +20,7 @@ namespace FreshMvvmPattern.ViewModels.Home
         public AwaitCommand GoBackCommand { get; }
         public MainViewModel()
         {
+            Title = "Home";
             GenderList = new DropMenuModel
             {
                 Id = 1,

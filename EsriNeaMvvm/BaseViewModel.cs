@@ -150,6 +150,9 @@ namespace EsriNeaMvvm
             CurrentPage.Disappearing -= ViewIsDisappearing;
             CurrentPage.BindingContext = null;
         }
+        public string Title { get; set; }
+        public string Icon { get; set; }
+        
     }
 }
 

@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace FreshMvvmPattern.iOS
+namespace EsriNeaMvvmPattern.iOS
 {
     public class Application
     {

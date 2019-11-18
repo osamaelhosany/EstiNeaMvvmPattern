@@ -6,7 +6,7 @@ namespace EsriNeaMvvm.Commands
 {
     public class BaseCommand : ICommand
     {
-        public bool Succes => SuccessCommand;         
+        public bool Succes => SuccessCommand;
 
         public event EventHandler CanExecuteChanged;
 
@@ -22,8 +22,8 @@ namespace EsriNeaMvvm.Commands
         public virtual async Task ExecuteAsync(object parameter)
         {
             await Task.FromResult(0);
-        }       
-            
+        }
+
         protected bool SuccessCommand;
     }
 }

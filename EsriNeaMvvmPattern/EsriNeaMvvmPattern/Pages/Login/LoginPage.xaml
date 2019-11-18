@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:base="clr-namespace:EsriNeaMvvm;assembly=EsriNeaMvvm"
-             x:Class="FreshMvvmPattern.Pages.Login.LoginPage">
+             x:Class="EsriNeaMvvmPattern.Pages.Login.LoginPage">
     <base:BaseContentPage.Content>
         <Grid BackgroundColor="{StaticResource ElePhantColor}">
             <Frame

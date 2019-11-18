@@ -6,7 +6,7 @@ namespace EsriNeaMvvm.Commands
 {
     public class RelayCommandWithArgsAsync<T> : BaseCommand
     {
-        public RelayCommandWithArgsAsync(Func<T, Task> action)          
+        public RelayCommandWithArgsAsync(Func<T, Task> action)
         {
             _actionExecute = action;
         }
@@ -29,7 +29,7 @@ namespace EsriNeaMvvm.Commands
         {
             try
             {
-                _actionExecute. Invoke((T)parameter);
+                _actionExecute.Invoke((T)parameter);
                 SuccessCommand = true;
             }
             catch (Exception ex)

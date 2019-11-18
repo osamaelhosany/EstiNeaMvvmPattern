@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -12,8 +14,10 @@ namespace EsriNeaMvvm
         Dictionary<string, Page> _pages = new Dictionary<string, Page>();
         ContentPage _menuPage;
         ObservableCollection<string> _pageNames = new ObservableCollection<string>();
-        ListView _listView = new ListView() { 
-            SeparatorVisibility =SeparatorVisibility.None };
+        ListView _listView = new ListView()
+        {
+            SeparatorVisibility = SeparatorVisibility.None
+        };
 
         public Dictionary<string, Page> Pages { get { return _pages; } }
         protected ObservableCollection<string> PageNames { get { return _pageNames; } }
@@ -33,32 +37,40 @@ namespace EsriNeaMvvm
             CreateMenuPage(menuTitle, menuIcon);
             RegisterNavigation();
         }
-
+        public void Init<T>(string masterListName) where T : BaseViewModel
+        {
+            CreateMenuPage<T>(masterListName);
+            RegisterNavigation();
+        }
         protected virtual void RegisterNavigation()
         {
             EsriIOC.Container.Register<INavigationService>(this, NavigationServiceName);
         }
 
-        public virtual void AddPage<T>(string title, object data = null) where T : BaseViewModel
+        public virtual void AddPage<T>(object data = null) where T : BaseViewModel
         {
             var page = ViewModelResolver.ResolvePageModel<T>(data);
-            page.GetModel().CurrentNavigationServiceName = NavigationServiceName;
+            var pagemodel = page.GetModel();
+            pagemodel.CurrentNavigationServiceName = NavigationServiceName;
             _pagesInner.Add(page);
             var navigationContainer = CreateContainerPage(page);
-            _pages.Add(title, navigationContainer);
-            _pageNames.Add(title);
+            if (string.IsNullOrEmpty(pagemodel.Title)) throw new Exception("no Title found for " + pagemodel.GetType().Name);
+            _pages.Add(pagemodel.Title, navigationContainer);
+            _pageNames.Add(pagemodel.Title);
             if (_pages.Count == 1)
                 Detail = navigationContainer;
         }
-        public virtual void AddPage(string modelName, string title, object data = null)
+        public virtual void AddPage(string modelName, object data = null)
         {
             var pageModelType = Type.GetType(modelName);
             var page = ViewModelResolver.ResolvePageModel(pageModelType, null);
-            page.GetModel().CurrentNavigationServiceName = NavigationServiceName;
+            var pagemodel = page.GetModel();
+            pagemodel.CurrentNavigationServiceName = NavigationServiceName;
             _pagesInner.Add(page);
             var navigationContainer = CreateContainerPage(page);
-            _pages.Add(title, navigationContainer);
-            _pageNames.Add(title);
+            if (string.IsNullOrEmpty(pagemodel.Title)) throw new Exception("no Title found for " + pagemodel.GetType().Name);
+            _pages.Add(pagemodel.Title, navigationContainer);
+            _pageNames.Add(pagemodel.Title);
             if (_pages.Count == 1)
                 Detail = navigationContainer;
         }
@@ -82,7 +94,7 @@ namespace EsriNeaMvvm
             _menuPage.Title = menuPageTitle;
 
             _listView.ItemsSource = _pageNames;
-            
+
             _listView.ItemSelected += (sender, args) =>
             {
                 if (_pages.ContainsKey((string)args.SelectedItem))
@@ -102,7 +114,26 @@ namespace EsriNeaMvvm
 
             Master = navPage;
         }
-
+        
+        private void CreateMenuPage<T>(string masterListName) where T : BaseViewModel
+        {
+            var masterpage = ViewModelResolver.ResolvePageModel<T>();
+            var pagelist = masterpage.FindByName(masterListName);
+            if (pagelist is ListView list)
+            {
+                list.ItemSelected += (sender, args) =>
+                {
+                    if (_pages.ContainsKey(((MenuItems)args.SelectedItem).Title))
+                    {
+                        Detail = _pages[((MenuItems)args.SelectedItem).Title];
+                    }
+                    IsPresented = false;
+                };
+            }
+            else throw new Exception("Master list navigation name not the same as xaml");
+            Master = masterpage;
+        }
+       
         public Task PushPage(Page page, BaseViewModel model, bool modal = false, bool animate = true)
         {
             if (modal)
@@ -152,6 +183,23 @@ namespace EsriNeaMvvm
 
             return Task.FromResult((Detail as NavigationPage).CurrentPage.GetModel());
         }
+    
+    }
+    public class MenuItems : INotifyPropertyChanged
+    {
+        public string Title{ get; set; }
+        public string Image{ get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
     }
 }
 

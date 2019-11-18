@@ -1,11 +1,11 @@
 ﻿using EsriNeaMvvm;
-using FreshMvvmPattern.ViewModels.Home;
+using EsriNeaMvvmPattern.ViewModels.Home;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FreshMvvmPattern.ViewModels.Login
+namespace EsriNeaMvvmPattern.ViewModels.Login
 {
     public class LoginViewModel : BaseViewModel
     {
@@ -14,6 +14,7 @@ namespace FreshMvvmPattern.ViewModels.Login
         public AwaitCommand LoginCommand { get; }
         public LoginViewModel()
         {
+            Title = "Login";
            // _validatorService = validatorService;
             LoginCommand = new AwaitCommand(LoginCommandExecute);
            // this.WhenAny((string s)=> { populate(); }, x=> x.UserName);

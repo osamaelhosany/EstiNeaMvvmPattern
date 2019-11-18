@@ -53,7 +53,7 @@ namespace EsriNeaMvvm.Commands.WeakManager
         /// <param name="sender">Sender</param>
         /// <param name="eventArgs">Event arguments</param>
         /// <param name="eventName">Event name</param>
-        public void HandleEvent(object sender, TEventArgs eventArgs, string eventName) => 
+        public void HandleEvent(object sender, TEventArgs eventArgs, string eventName) =>
             EventManagerService.HandleEvent(eventName, sender, eventArgs, _eventHandlers);
     }
 
@@ -102,7 +102,7 @@ namespace EsriNeaMvvm.Commands.WeakManager
         /// <param name="sender">Sender</param>
         /// <param name="eventArgs">Event arguments</param>
         /// <param name="eventName">Event name</param>
-        public void HandleEvent(object sender, object eventArgs, string eventName) => 
+        public void HandleEvent(object sender, object eventArgs, string eventName) =>
             EventManagerService.HandleEvent(eventName, sender, eventArgs, _eventHandlers);
     }
 }

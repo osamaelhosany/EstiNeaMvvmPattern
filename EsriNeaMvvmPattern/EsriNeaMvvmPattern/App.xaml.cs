@@ -1,16 +1,17 @@
 ﻿using EsriNeaMvvm;
-using FreshMvvmPattern.Pages;
-using FreshMvvmPattern.ViewModels.Home;
-using FreshMvvmPattern.ViewModels.Login;
+using EsriNeaMvvmPattern.ViewModels;
+using EsriNeaMvvmPattern.Pages;
+using EsriNeaMvvmPattern.ViewModels.Home;
+using EsriNeaMvvmPattern.ViewModels.Login;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FreshMvvmPattern
+namespace EsriNeaMvvmPattern
 {
     public partial class App : Application
-    {
+    { 
         public App()
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace FreshMvvmPattern
            // FreshIOC.Container.Register<IValidatorService, ValidatorService>();
             EsriIOC.Container.Register<BaseViewModel,LoginViewModel>().AsSingleton();
             EsriIOC.Container.Register<BaseViewModel, MainViewModel>().AsSingleton();
+            EsriIOC.Container.Register<MasterDetailNavigationContainer, MasterDetailNavigationContainer>().AsSingleton();
         }
 
         private void SetStartPage()
@@ -36,10 +38,11 @@ namespace FreshMvvmPattern
         }
         public void SetupMasterDetail()
         {
-            var masterDetailNav = new MasterDetailNavigationContainer();
-            masterDetailNav.Init("Menu", "Menu.png");
-            masterDetailNav.AddPage<LoginViewModel>("Login", "Hii");
-            masterDetailNav.AddPage<MainViewModel>("Home", new List<int>() { 1,2,3});
+            var masterDetailNav = EsriIOC.Container.Resolve<MasterDetailNavigationContainer>();
+         // masterDetailNav.Init("Menu", "Menu.png");
+            masterDetailNav.Init<MasterMenuViewModel>("navigationList");
+            masterDetailNav.AddPage<LoginViewModel>("Hii");
+            masterDetailNav.AddPage<MainViewModel>(new List<int>() { 1,2,3});
             MainPage = masterDetailNav;
         }
     }

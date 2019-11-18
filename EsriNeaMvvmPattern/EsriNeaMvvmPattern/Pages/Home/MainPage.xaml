@@ -1,28 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="FreshMvvmPattern.Pages.Home.MainPage"
+    x:Class="EsriNeaMvvmPattern.Pages.Home.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:drop="clr-namespace:DropdownMenu.UserControls;assembly=DropdownMenu"
     xmlns:dropemnu="clr-namespace:DropdownMenu.UserControls;assembly=DropdownMenu"
-xmlns:drop="clr-namespace:DropdownMenu.UserControls;assembly=DropdownMenu"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <StackLayout>
         <!--  Place new controls here  -->
+        <dropemnu:DropMenu
+            ColorBackground="LightGray"
+            HeaderText="{Binding GenderList.HeaderName}"
+            HeaderTextColor="DarkBlue"
+            HorizontalOptions="Center"
+            ItemCheckedCommand="{Binding GenderSelectedCommand}"
+            ListSource="{Binding GenderList.DropMenuList}"
+            VerticalOptions="Start" />
         <Label
             HorizontalOptions="Center"
             Text="Welcome to Xamarin.Forms!"
             VerticalOptions="CenterAndExpand" />
         <Button Command="{Binding GoBackCommand}" Text="Go Back" />
-        <dropemnu:DropMenu  ColorBackground="LightGray"
-                    HeaderText="{Binding GenderList.HeaderName}"
-                    HeaderTextColor="DarkBlue"
-                    HorizontalOptions="Center"
-                    ItemCheckedCommand="{Binding GenderSelectedCommand}"
-                    ListSource="{Binding GenderList.DropMenuList}"
-                    VerticalOptions="Start" />
+
     </StackLayout>
 
 </ContentPage>
