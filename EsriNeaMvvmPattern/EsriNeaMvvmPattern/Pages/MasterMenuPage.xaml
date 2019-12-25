@@ -7,6 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="{Binding Title}"
     IconImageSource="{Binding Icon}"
+    NavigationPage.HasNavigationBar="False"
+    x:Name="RootItem"
     mc:Ignorable="d">
     <ContentPage.Content>
         <Grid>
@@ -46,6 +48,11 @@
                                     Text="{Binding Title}"
                                     TextColor="{StaticResource ElePhantColor}"
                                     VerticalOptions="Center" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectedCommand}"
+                                                          BindingContext="{Binding Source={x:Reference RootItem},Path=BindingContext}"
+                                                          />
+                                </StackLayout.GestureRecognizers>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -60,6 +67,7 @@
                 FontSize="16"
                 Text="Close"
                 TextColor="{StaticResource WhiteColor}" />
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>

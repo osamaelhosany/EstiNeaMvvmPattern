@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -287,6 +288,11 @@ namespace EsriNeaMvvm
                         break;
                 }
             }
+        }
+
+        public List<Page> NavigationStack()
+        {    
+             return _currentPage.Navigation.NavigationStack.ToList();
         }
     }
 }

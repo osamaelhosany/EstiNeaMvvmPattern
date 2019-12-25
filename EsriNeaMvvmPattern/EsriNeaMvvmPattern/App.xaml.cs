@@ -7,10 +7,12 @@ using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 namespace EsriNeaMvvmPattern
 {
-    public partial class App : Application
+    public partial class App : Xamarin.Forms.Application
     { 
         public App()
         {
@@ -20,7 +22,9 @@ namespace EsriNeaMvvmPattern
 
           //  SetStartPage();
 
-            SetupMasterDetail();
+         //   SetupMasterDetail();
+
+            SetupTabbedPage();
         }
 
         private void SetupDependencyInjection()
@@ -44,6 +48,16 @@ namespace EsriNeaMvvmPattern
             masterDetailNav.AddPage<LoginViewModel>("Hii");
             masterDetailNav.AddPage<MainViewModel>(new List<int>() { 1,2,3});
             MainPage = masterDetailNav;
+        }
+        public void SetupTabbedPage()
+        {
+            var tabbedpage = new TabbedNavigationContainer();
+            tabbedpage.On<Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
+            
+            tabbedpage.AddTab<MasterMenuViewModel>("master", "icon");
+            tabbedpage.AddTab<LoginViewModel>("login", "icon");
+            tabbedpage.AddTab<MainViewModel>("main", "icon");
+            MainPage = tabbedpage;
         }
     }
 }

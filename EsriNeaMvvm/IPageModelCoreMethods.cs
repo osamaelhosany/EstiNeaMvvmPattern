@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -92,6 +93,8 @@ namespace EsriNeaMvvm
 
         void BatchCommit();
         Task PushPageModel<T>(Action<T> setPageModel, bool modal = false, bool animate = true) where T : BaseViewModel;
+        List<Page> NavigationStack();
+
     }
 }
 

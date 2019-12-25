@@ -27,7 +27,7 @@ namespace EsriNeaMvvmPattern.ViewModels.Login
         private async void LoginCommandExecute(object arg1, TaskCompletionSource<bool> arg2)
         {
             await Task.Delay(1000);
-            await NavigationService.PushPageModel<MainViewModel>(count++,false);
+            await NavigationService.PushPageModel<MainViewModel>("",true,true);
             arg2.SetResult(false);
         }
         public void populate() 

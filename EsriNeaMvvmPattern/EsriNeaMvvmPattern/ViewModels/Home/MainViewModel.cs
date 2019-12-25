@@ -62,7 +62,12 @@ namespace EsriNeaMvvmPattern.ViewModels.Home
         }
         private async void GoBackCommandExecute(object arg1, TaskCompletionSource<bool> arg2)
         {
-             await NavigationService.PopPageModel("adada"); 
+
+            var lissst = NavigationService.NavigationStack();
+            if(lissst[0].Title == "login")
+             await NavigationService.PopPageModel("adada",true,true);
+            else
+                await NavigationService.PopPageModel("adada", false, true);
         }
 
         protected override void ViewIsAppearing(object sender, EventArgs e)

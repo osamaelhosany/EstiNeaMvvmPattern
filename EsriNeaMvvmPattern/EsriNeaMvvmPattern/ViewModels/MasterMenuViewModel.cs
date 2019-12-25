@@ -1,4 +1,5 @@
 ﻿using EsriNeaMvvm;
+using EsriNeaMvvmPattern.ViewModels.Home;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,6 +11,7 @@ namespace EsriNeaMvvmPattern.ViewModels
     {
         public List<MenuItems> MenuItems { get; set; }
         public AwaitCommand GoBackCommand { get; }
+        public AwaitCommand SelectedCommand { get; }
         public MasterMenuViewModel()
         {
             Title = "Master";
@@ -28,6 +30,14 @@ namespace EsriNeaMvvmPattern.ViewModels
                 } 
             };
             GoBackCommand = new AwaitCommand(GoBackCommandExecute);
+            SelectedCommand = new AwaitCommand(SelectedCommandExecute);
+        }
+
+        private async void SelectedCommandExecute(object arg1, TaskCompletionSource<bool> arg2)
+        {
+            await NavigationService.PushPageModel<MainViewModel>("", false, true);
+            arg2.SetResult(false);
+
         }
 
         private void GoBackCommandExecute(object arg1, TaskCompletionSource<bool> arg2)

@@ -7,7 +7,9 @@
     xmlns:drop="clr-namespace:DropdownMenu.UserControls;assembly=DropdownMenu"
     xmlns:dropemnu="clr-namespace:DropdownMenu.UserControls;assembly=DropdownMenu"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    NavigationPage.HasNavigationBar="False"
+    mc:Ignorable="d"
+    x:Name="rootpage">
 
     <StackLayout>
         <!--  Place new controls here  -->
@@ -23,7 +25,31 @@
             HorizontalOptions="Center"
             Text="Welcome to Xamarin.Forms!"
             VerticalOptions="CenterAndExpand" />
-        <Button Command="{Binding GoBackCommand}" Text="Go Back" />
+
+        <Button Command="{Binding GoBackCommand}" Text="Go Back"/>
+
+        <Frame CornerRadius="0"
+               Margin="30">
+
+            <Grid HeightRequest="200"
+              WidthRequest="200">
+
+            <ImageButton Source="logo"
+                         Margin="-30"
+                         CornerRadius="30"
+                         HorizontalOptions="Start"
+                         VerticalOptions="Start"
+                         BackgroundColor="Red"
+                         WidthRequest="30"
+                         HeightRequest="30"/>
+
+            <Image Source="icon"
+                   Aspect="AspectFill"
+                   VerticalOptions="FillAndExpand"
+                   HorizontalOptions="FillAndExpand"/>
+            </Grid>
+
+        </Frame>
 
     </StackLayout>
 
