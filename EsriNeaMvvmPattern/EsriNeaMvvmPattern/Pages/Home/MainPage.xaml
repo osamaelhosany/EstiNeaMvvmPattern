@@ -9,6 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d"
+    Title="{Binding Title}"
     x:Name="rootpage">
 
     <StackLayout>

@@ -294,6 +294,10 @@ namespace EsriNeaMvvm
         {    
              return _currentPage.Navigation.NavigationStack.ToList();
         }
+
+        public List<Page> ModalStack()
+        {
+            return _currentPage.Navigation.ModalStack.ToList()?? new List<Page>();
+        }
     }
 }
-

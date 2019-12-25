@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              xmlns:base="clr-namespace:EsriNeaMvvm;assembly=EsriNeaMvvm"
               NavigationPage.HasNavigationBar="False"
-                      Title="login"
+                      Title="Login"
              x:Class="EsriNeaMvvmPattern.Pages.Login.LoginPage">
     <base:BaseContentPage.Content>
         <Grid BackgroundColor="{StaticResource ElePhantColor}">
